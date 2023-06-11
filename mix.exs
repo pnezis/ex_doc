@@ -34,7 +34,7 @@ defmodule ExDoc.Mixfile do
 
   defp deps do
     [
-      {:earmark_parser, "~> 1.4.31"},
+      {:earmark_parser, github: "pnezis/earmark_parser", branch: "code-eval"},
       {:makeup_elixir, "~> 0.14"},
       {:makeup_erlang, "~> 0.1"},
       {:makeup_html, ">= 0.0.0", only: :dev},

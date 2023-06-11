@@ -29,7 +29,8 @@ defmodule ExDoc.Markdown.Earmark do
       line: 1,
       file: "nofile",
       breaks: false,
-      pure_links: true
+      pure_links: true,
+      annotations: "-->"
     ]
 
     options = Keyword.merge(options, opts)

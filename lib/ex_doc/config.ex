@@ -43,7 +43,8 @@ defmodule ExDoc.Config do
             source_url: nil,
             source_url_pattern: nil,
             title: nil,
-            version: nil
+            version: nil,
+            embedders: nil
 
   @type t :: %__MODULE__{
           annotations_for_docs: (map() -> list()),
@@ -80,7 +81,8 @@ defmodule ExDoc.Config do
           source_url: nil | String.t(),
           source_url_pattern: nil | String.t(),
           title: nil | String.t(),
-          version: nil | String.t()
+          version: nil | String.t(),
+          embedders: keyword()
         }
 
   @spec build(String.t(), String.t(), Keyword.t()) :: ExDoc.Config.t()
@@ -90,6 +92,7 @@ defmodule ExDoc.Config do
     {nest_modules_by_prefix, options} = Keyword.pop(options, :nest_modules_by_prefix, [])
     {proglang, options} = Keyword.pop(options, :proglang, :elixir)
     {filter_modules, options} = Keyword.pop(options, :filter_modules, &filter_modules/2)
+    {embedders, options} = Keyword.pop(options, :embedders, [])
 
     options =
       if groups_for_functions = options[:groups_for_functions] do
@@ -114,7 +117,8 @@ defmodule ExDoc.Config do
       proglang: normalize_proglang(proglang),
       project: project,
       source_url_pattern: source_url_pattern,
-      version: vsn
+      version: vsn,
+      embedders: embedders
     }
 
     struct(preconfig, options)
