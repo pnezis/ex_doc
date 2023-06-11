@@ -34,6 +34,7 @@ defmodule ExDoc.Mixfile do
 
   defp deps do
     [
+      # {:earmark_parser, path: "../earmark_parser"},
       {:earmark_parser, github: "pnezis/earmark_parser", branch: "code-eval"},
       {:makeup_elixir, "~> 0.14"},
       {:makeup_erlang, "~> 0.1"},
